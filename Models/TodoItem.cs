@@ -8,7 +8,7 @@
 
         public int participant_id { get; set; }
         public int device_id { get; set; }
-        public DateTime date { get; set; }
+        public string date { get; set; }
         public int heart_rate { get; set; }
     }
 }
