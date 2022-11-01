@@ -52,34 +52,34 @@ namespace TodoApi.Controllers
         // PUT: api/Todo/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
-        // {
-        //     if (id != todoItem.Id)
-        //     {
-        //         return BadRequest();
-        //     }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
+        {
+            if (id != todoItem.Id)
+            {
+                return BadRequest();
+            }
 
-        //     _context.Entry(todoItem).State = EntityState.Modified;
+            _context.Entry(todoItem).State = EntityState.Modified;
 
-        //     try
-        //     {
-        //         await _context.SaveChangesAsync();
-        //     }
-        //     catch (DbUpdateConcurrencyException)
-        //     {
-        //         if (!TodoItemExists(id))
-        //         {
-        //             return NotFound();
-        //         }
-        //         else
-        //         {
-        //             throw;
-        //         }
-        //     }
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TodoItemExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-        //     return NoContent();
-        // }
+            return NoContent();
+        }
 
         // POST: api/Todo
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
@@ -109,9 +109,9 @@ namespace TodoApi.Controllers
         //     return todoItem;
         // }
 
-        // private bool TodoItemExists(long id)
-        // {
-        //     return _context.TodoItems.Any(e => e.Id == id);
-        // }
+        private bool TodoItemExists(long id)
+        {
+            return _context.TodoItems.Any(e => e.Id == id);
+        }
     }
 }
