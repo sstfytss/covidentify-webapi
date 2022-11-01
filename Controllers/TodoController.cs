@@ -35,19 +35,19 @@ namespace TodoApi.Controllers
             return await _context.TodoItems.ToListAsync();
         }
 
-        // // GET: api/Todo/5
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
-        // {
-        //     var todoItem = await _context.TodoItems.FindAsync(id);
+        // GET: api/Todo/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
+        {
+            var todoItem = await _context.TodoItems.FindAsync(id);
 
-        //     if (todoItem == null)
-        //     {
-        //         return NotFound();
-        //     }
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
 
-        //     return todoItem;
-        // }
+            return todoItem;
+        }
 
         // PUT: api/Todo/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
