@@ -31,6 +31,7 @@ namespace TodoApi
 
             //services.AddDbContext<TodoContext>(options => options.UseInMemoryDatabase("TodoList"));
             services.AddDbContext<TodoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+            services.AddDbContext<LoginContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
