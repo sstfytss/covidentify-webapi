@@ -90,7 +90,7 @@ namespace TodoApi.Controllers
             _context.TodoItems.Add(todoItem);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTodoItem", new { Id = todoItem.Id }, todoItem);
+            return CreatedAtAction(nameof(GetTodoItem), new { Id = todoItem.Id }, todoItem);
         }
 
         // // DELETE: api/Todo/5
