@@ -19,14 +19,14 @@ namespace TodoApi.Migrations.AppleWatch
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppleWatchItems", x => x.Id);
+                    table.PrimaryKey("PK_AppleWatch_1_Items", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AppleWatchItems");
+                name: "AppleWatch_1_Items");
         }
     }
 }
